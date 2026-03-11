@@ -6,7 +6,7 @@
 const SST_CONFIG = {
 
   // ── URL del Google Apps Script ─────────────
-  SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxyA0ugGfFOWKKqZf2M1HtD4_q6ibjNRLuL-IZbtmPI7o_R2Ol5qWZ4Ki4GLZQOHBJhVg/exec",
+  SCRIPT_URL: "https://script.google.com/macros/s/AKfycbznnjKfkA2xLqU4KQQ0jwRTN3qfrVMVyrvVLLvrijz2dyRPYpsl0fZsFpcWi-l3-K64dA/exec",
 
   // ── Contraseña panel admin ──────────────────
   ADMIN_PASSWORD: "admin123",
