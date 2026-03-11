@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Estado — SST</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/consulta.css">
+</head>
+<body>
+
+  <!-- LOADING -->
+  <div class="overlay-loading" id="overlayLoading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- TOPBAR -->
+  <nav class="topbar">
+    <div class="topbar-brand">
+      <span class="dot"></span>
+      Portal SST
+    </div>
+    <button class="topbar-back" onclick="window.location.href='index.html'">← Inicio</button>
+  </nav>
+
+  <!-- HERO BÚSQUEDA -->
+  <section class="search-hero">
+    <h1>🔍 Consulta de Estado</h1>
+    <p>Verifica el estado de los documentos que enviaste</p>
+
+    <div class="search-card">
+      <form id="formBusqueda" onsubmit="return false;">
+        <div class="search-grid">
+          <div class="field">
+            <label>Nombre del Proveedor <span class="req">*</span></label>
+            <input type="text" id="bNombre" class="input" placeholder="Nombre exacto del proveedor" required>
+          </div>
+          <div class="field">
+            <label>Número de Cédula <span class="req">*</span></label>
+            <input type="text" id="bCedula" class="input" placeholder="Tu número de cédula" required>
+          </div>
+          <button type="submit" id="btnBuscar" class="btn btn-primary btn-lg">🔍 Buscar</button>
+        </div>
+      </form>
+      <div id="msgBusqueda" class="msg" style="margin-top:1rem;"></div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <div id="resultsArea" class="results-outer">
+
+    <!-- Info del proveedor -->
+    <div class="prov-info-card">
+      <div class="prov-info-title">🏢 Información del Proveedor</div>
+      <div class="info-grid">
+        <div class="info-field">
+          <span class="info-lbl">Proveedor</span>
+          <span class="info-val" id="rNombre">—</span>
+        </div>
+        <div class="info-field">
+          <span class="info-lbl">Responsable</span>
+          <span class="info-val" id="rResp">—</span>
+        </div>
+        <div class="info-field">
+          <span class="info-lbl">Empresa</span>
+          <span class="info-val" id="rEmpresa">—</span>
+        </div>
+        <div class="info-field">
+          <span class="info-lbl">Documento</span>
+          <span class="info-val" id="rDoc">—</span>
+        </div>
+        <div class="info-field">
+          <span class="info-lbl">Áreas</span>
+          <span class="info-val" id="rAreas">—</span>
+        </div>
+        <div class="info-field">
+          <span class="info-lbl">Consulta</span>
+          <span class="info-val" id="rFecha">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Documentos -->
+    <div class="docs-title">📄 Documentos Enviados</div>
+    <div id="docCards" class="docs-grid"></div>
+
+    <!-- Resumen -->
+    <div class="resumen-card">
+      <div class="resumen-title">📊 Resumen de Estado</div>
+      <div class="resumen-stats">
+        <div class="res-stat">
+          <div class="num" id="rsTotal">0</div>
+          <div class="lbl">Total</div>
+        </div>
+        <div class="res-stat pending">
+          <div class="num" id="rsPend">0</div>
+          <div class="lbl">Pendientes</div>
+        </div>
+        <div class="res-stat approved">
+          <div class="num" id="rsApro">0</div>
+          <div class="lbl">Aprobados</div>
+        </div>
+        <div class="res-stat rejected">
+          <div class="num" id="rsRech">0</div>
+          <div class="lbl">Rechazados</div>
+        </div>
+      </div>
+      <div class="leyenda">
+        <div class="leyenda-item">
+          <span class="badge pendiente">Pendiente</span>
+          <p>En revisión por el equipo SST</p>
+        </div>
+        <div class="leyenda-item">
+          <span class="badge aprobado">Aprobado</span>
+          <p>Documento validado y aceptado</p>
+        </div>
+        <div class="leyenda-item">
+          <span class="badge rechazado">Rechazado</span>
+          <p>Requiere corrección o reenvío</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/consulta.js"></script>
+
+</body>
+</html>

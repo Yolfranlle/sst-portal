@@ -1,0 +1,146 @@
+/* ═══════════════════════════════════════════════
+   PORTAL SST — CONSULTA DE ESTADO
+═══════════════════════════════════════════════ */
+
+body { background: var(--off-white); min-height: 100vh; }
+
+/* ── TOPBAR ────────────────────────────────── */
+.topbar {
+  background: var(--navy);
+  padding: 0 2rem; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar-brand {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-display); font-size: 1.05rem; color: var(--white);
+}
+.topbar-brand .dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; }
+.topbar-back { background: none; border: none; font-size: 0.82rem; color: rgba(255,255,255,0.4); cursor: pointer; transition: color 0.2s; }
+.topbar-back:hover { color: var(--success); }
+
+/* ── HERO SEARCH ───────────────────────────── */
+.search-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #1f4788 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.search-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--white); margin-bottom: 0.4rem;
+}
+.search-hero p { color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-bottom: 2rem; }
+
+.search-card {
+  max-width: 680px; margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-xl);
+}
+.search-grid { display: grid; grid-template-columns: 1fr 1fr auto; gap: 1rem; align-items: flex-end; }
+
+/* ── RESULTS AREA ──────────────────────────── */
+.results-outer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: none;
+}
+.results-outer.show { display: block; animation: fadeIn 0.3s ease; }
+
+/* ── PROVEEDOR INFO ────────────────────────── */
+.prov-info-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--navy-light);
+}
+.prov-info-title {
+  font-family: var(--font-display);
+  font-size: 1rem; color: var(--navy); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.info-field { display: flex; flex-direction: column; gap: 3px; }
+.info-lbl { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-400); }
+.info-val { font-size: 0.92rem; font-weight: 500; color: var(--navy); }
+
+/* ── DOC CARDS ─────────────────────────────── */
+.docs-title {
+  font-family: var(--font-display);
+  font-size: 1rem; color: var(--navy);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.docs-grid { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
+
+.doc-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid var(--gray-200);
+  padding: 1.3rem 1.5rem;
+  transition: var(--transition);
+}
+.doc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.doc-card.pendiente  { border-top-color: var(--warning); }
+.doc-card.aprobado   { border-top-color: var(--success); }
+.doc-card.rechazado  { border-top-color: var(--danger); }
+
+.doc-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+.doc-name { font-weight: 600; color: var(--navy); font-size: 0.95rem; margin-bottom: 3px; }
+.doc-area {
+  display: inline-block; padding: 2px 10px;
+  background: var(--gray-100); border-radius: 20px;
+  font-size: 0.75rem; color: var(--gray-600);
+}
+
+.doc-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; }
+.doc-meta-item { display: flex; gap: 6px; align-items: baseline; font-size: 0.82rem; }
+.doc-meta-item .lbl { color: var(--gray-400); font-weight: 600; white-space: nowrap; }
+.doc-meta-item .val { color: var(--gray-800); }
+
+.doc-comment {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  background: var(--off-white);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--navy-light);
+  font-size: 0.85rem; color: var(--gray-600);
+  font-style: italic; line-height: 1.5;
+}
+.doc-comment strong { display: block; color: var(--navy); font-style: normal; margin-bottom: 4px; font-size: 0.78rem; }
+
+/* ── RESUMEN ───────────────────────────────── */
+.resumen-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem 1.8rem;
+}
+.resumen-title { font-family: var(--font-display); font-size: 1rem; color: var(--navy); margin-bottom: 1.2rem; }
+.resumen-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.res-stat { text-align: center; padding: 1rem; background: var(--off-white); border-radius: var(--radius-sm); }
+.res-stat .num { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--navy); }
+.res-stat .lbl { font-size: 0.75rem; color: var(--gray-400); text-transform: uppercase; margin-top: 3px; }
+.res-stat.pending  .num { color: var(--warning); }
+.res-stat.approved .num { color: var(--success); }
+.res-stat.rejected .num { color: var(--danger); }
+
+.leyenda { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1.2rem; border-top: 1.5px solid var(--gray-100); }
+.leyenda-item p { font-size: 0.8rem; color: var(--gray-400); margin-top: 5px; line-height: 1.4; }
+
+@media (max-width: 640px) {
+  .search-grid { grid-template-columns: 1fr; }
+  .resumen-stats { grid-template-columns: 1fr 1fr; }
+  .leyenda { grid-template-columns: 1fr; }
+  .doc-meta { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal SST — Sistema de Gestión de Documentos</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-logo">🛡️</div>
+    <h1>Portal SST</h1>
+    <p>Sistema de Gestión de Documentos para Proveedores</p>
+    <span class="hero-version">v2.0 · Seguridad y Salud en el Trabajo</span>
+  </section>
+
+  <!-- MÓDULOS -->
+  <main class="main-grid">
+
+    <!-- PORTAL PROVEEDORES -->
+    <div class="mod-card proveedor" onclick="window.location.href='portal_proveedores.html'">
+      <div class="mod-icon">📝</div>
+      <div>
+        <h2>Portal de Proveedores</h2>
+        <p>Carga los documentos requeridos de forma fácil y segura.</p>
+      </div>
+      <ul class="mod-features">
+        <li>Formulario guiado paso a paso</li>
+        <li>Carga de archivos PDF, DOC, imágenes</li>
+        <li>Requisitos dinámicos por área</li>
+        <li>Confirmación de envío en tiempo real</li>
+      </ul>
+      <button class="mod-btn">Cargar Documentos →</button>
+    </div>
+
+    <!-- PANEL ADMIN -->
+    <div class="mod-card admin" onclick="window.location.href='panel_administrativo.html'">
+      <div class="mod-icon">📊</div>
+      <div>
+        <h2>Panel Administrativo</h2>
+        <p>Gestiona y valida los documentos enviados por proveedores.</p>
+      </div>
+      <ul class="mod-features">
+        <li>Dashboard con estadísticas en vivo</li>
+        <li>Aprobar, rechazar y comentar</li>
+        <li>Gestión de áreas y requisitos</li>
+        <li>Vista de todos los proveedores</li>
+      </ul>
+      <button class="mod-btn">Acceder al Panel →</button>
+    </div>
+
+    <!-- CONSULTA -->
+    <div class="mod-card consulta" onclick="window.location.href='consulta_estado.html'">
+      <div class="mod-icon">🔍</div>
+      <div>
+        <h2>Consulta de Estado</h2>
+        <p>Verifica el estado de tus documentos enviados.</p>
+      </div>
+      <ul class="mod-features">
+        <li>Búsqueda por nombre y cédula</li>
+        <li>Ver estado de cada documento</li>
+        <li>Leer comentarios del equipo SST</li>
+        <li>Resumen de aprobaciones</li>
+      </ul>
+      <button class="mod-btn">Consultar Estado →</button>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    🛡️ Portal SST v2.0 &nbsp;·&nbsp; Sistema de Gestión de Documentos &nbsp;·&nbsp; © 2024
+  </footer>
+
+</body>
+</html>
